@@ -19,4 +19,14 @@ python -m http.server 8000
 
 Acesse `http://localhost:8000/public/` ou `http://localhost:8000/public/historico.html`.
 
+## Deploy no Render
+
+Para publicar manualmente, no Render escolha **New > Static Site** e conecte este repositório.
+
+1. Use `public` como Publish Directory.
+2. Deixe o Build Command vazio.
+3. Não configure variáveis de ambiente: o app não usa backend nem serviços externos.
+
+O arquivo `public/index.html` é a entrada do site publicado. O histórico fica em `/historico.html`.
+
 Os dados ficam no `localStorage` do navegador atual e não são compartilhados entre aparelhos.

@@ -13,7 +13,7 @@ Não foram encontrados impeditivos estruturais para hospedar a pasta `public/` c
 1. `public/app.js` soma todo o histórico, embora o rótulo diga “Arrecadação hoje”. Filtrar por data ou renomear para “Arrecadação total”.
 2. `save()` não trata exceções de `localStorage` bloqueado/cheio. Adicionar `try/catch` e mensagem operacional.
 3. O metadado de `favicon.ico` está declarado com tipo SVG em uma referência; ajustar para `image/x-icon`.
-4. O TESTER registrou 404 para `/favicon.ico`, apesar de existirem `favicon.ico` na raiz e em `public/` e de os checks HTTP do DEV terem retornado 200. Revalidar antes de publicar.
+4. O TESTER havia registrado 404 para `/favicon.ico`; as páginas agora referenciam diretamente `favicon.svg`, validado em servidor estático local.
 
 ## Revisão final após correção
 
@@ -23,6 +23,8 @@ Achados não impeditivos: a arrecadação do dashboard soma todos os dias apesar
 
 ## Render
 
-Não existe `render.yaml`, `package.json` ou build command, o que é aceitável para site estático. Configuração recomendada: Static Site, Build Command vazio, Publish Directory `public`, sem variáveis de ambiente. Nenhuma dependência é necessária.
+As referências de favicon foram padronizadas para `public/favicon.svg`, que foi validado com resposta HTTP 200 no servidor estático local.
 
-Limitação: a revisão não publicou nem controlou o navegador.
+Para publicação manual no Render, basta criar um **Static Site**, usar `public` como Publish Directory e deixar o Build Command vazio. Não há `package.json`, variáveis de ambiente, backend ou dependências necessárias.
+
+Limitação: a revisão não publicou o serviço nem validou o URL público. Os achados funcionais acima permanecem não bloqueadores para o deploy, mas devem ser tratados antes de uso multioperador.

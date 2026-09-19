@@ -2,7 +2,14 @@
 
 ## Status
 
-Aplicação local preparada para avaliação. Não publicada no Render; ainda não existe link real.
+Aplicação estática preparada para publicação no Render. Não publicada no Render; ainda não existe link real.
+
+## Configuração de deploy
+
+- Tipo: Render Static Site
+- Publish Directory: `public`
+- Build Command: vazio
+- Variáveis de ambiente: nenhuma
 
 ## Funcionalidades
 
@@ -29,9 +36,11 @@ Os dados ficam somente no `localStorage` deste navegador e não são compartilha
 
 ## Testes e evidências
 
-O relatório detalhado está em [testes/RELATORIO-TESTES.md](testes/RELATORIO-TESTES.md), com capturas em [evidencias/](evidencias/). A rodada final passou em migração, tarifas, fechamento/novo dia, histórico, mobile, console e rede. O teste automatizado de carro por exatamente uma hora não foi concluído; moto por uma hora foi validada em aproximadamente R$ 16,00.
+O relatório detalhado está em [testes/RELATORIO-DEPLOY-TESTER-2026-09-19.md](testes/RELATORIO-DEPLOY-TESTER-2026-09-19.md), com captura em [evidencias/](evidencias/). A rodada de preparação passou em 9 cenários e 15 casos unitários de tarifas. O teste no URL publicado ainda está pendente.
 
 ## O que falta para publicar no Render
+
+Validação local final: as rotas e assets publicados responderam HTTP 200 em servidor iniciado dentro de `public/`, e os scripts passaram na verificação de sintaxe. O URL do Render depende da criação do serviço e ainda não foi inventado neste documento.
 
 1. Criar um serviço **Static Site** apontando para este repositório.
 2. Usar `public` como Publish Directory.
