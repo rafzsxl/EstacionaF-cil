@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard local de controle do estacionamento Estaciona Fácil">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="favicon.ico">
+  <title>Estaciona Fácil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><p class="eyebrow">OPERAÇÃO DE PÁTIO</p><h1>Estaciona <span>Fácil</span></h1><nav class="main-nav" aria-label="Navegação principal"><a class="active" href="index.html">Dashboard</a><a href="historico.html">Histórico completo</a></nav></div>
+    <div class="clock" aria-live="polite"><span id="current-date">--</span><strong id="current-time">--:--:--</strong></div>
+  </header>
+  <main class="container">
+    <section class="summary" aria-label="Resumo do estacionamento">
+      <article class="metric"><span>Vagas livres</span><strong id="free-count">10</strong><small>de 10 totais</small></article>
+      <article class="metric occupied"><span>Em uso</span><strong id="occupied-count">0</strong><small>veículos no pátio</small></article>
+      <article class="metric revenue"><span>Arrecadação hoje</span><strong id="revenue-total">R$ 0,00</strong><small id="checkout-count">0 check-outs</small></article>
+    </section>
+
+    <div class="day-bar"><div><strong id="day-status">Dia atual</strong><span id="day-label"></span></div><div class="day-actions"><button id="close-day" class="danger-button" type="button">Fechar dia</button><button id="new-day" class="primary small-button" type="button" hidden>Abrir novo dia</button></div></div>
+    <div class="layout">
+      <section class="panel parking-panel" aria-labelledby="parking-title">
+        <div class="section-heading"><div><p class="eyebrow">MAPA EM TEMPO REAL</p><h2 id="parking-title">Vagas do estacionamento</h2></div><div class="legend"><span class="dot free-dot"></span>Livre <span class="dot busy-dot"></span>Ocupada</div></div>
+        <div id="parking-grid" class="parking-grid"></div>
+      </section>
+      <aside class="panel checkin-panel" aria-labelledby="checkin-title">
+        <p class="eyebrow">NOVA ENTRADA</p><h2 id="checkin-title">Registrar check-in</h2>
+        <form id="checkin-form" novalidate>
+          <label for="plate">Placa <span>(obrigatório)</span></label>
+          <input id="plate" name="plate" maxlength="8" placeholder="ABC1D23" autocomplete="off" required>
+          <label for="category">Categoria</label>
+          <select id="category" name="category"><option value="car">Carro — R$ 10,00/h</option><option value="motorcycle">Moto — R$ 8,00/h</option></select>
+          <label for="slot">Vaga disponível</label>
+          <select id="slot" name="slot" required></select>
+          <button class="primary" type="submit">Registrar entrada <span aria-hidden="true">→</span></button>
+          <p id="form-message" class="form-message" role="alert"></p>
+        </form>
+        <div class="tip"><strong>Atalho operacional</strong><br>Placas aceitam letras e números, com ou sem hífen.</div>
+      </aside>
+    </div>
+
+    <section class="panel history-panel" aria-labelledby="history-title">
+      <div class="section-heading"><div><p class="eyebrow">REGISTROS ENCERRADOS</p><h2 id="history-title">Histórico de permanência</h2></div><a class="text-button" href="historico.html">Ver histórico completo →</a></div>
+      <div class="table-wrap"><table><thead><tr><th>Placa</th><th>Categoria</th><th>Vaga</th><th>Entrada</th><th>Saída</th><th>Tempo</th><th>Valor</th></tr></thead><tbody id="history-body"></tbody></table></div>
+      <div id="history-empty" class="empty-state">Nenhum checkout registrado ainda.</div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="storage.js"></script>
+  <script src="billing.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
