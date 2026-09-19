@@ -1,5 +1,15 @@
 # Revisão técnica
 
+## Revisão da configuração Render — 19/09/2026
+
+Nenhum impeditivo foi encontrado para o deploy estático. Foram examinados `render.yaml`, `README.md`, o briefing e as referências em `public/`.
+
+- `render.yaml` está na raiz e define `type: web`, `runtime: static` e `staticPublishPath: ./public`, configuração compatível com um Static Site do Render.
+- A pasta publicada contém as duas páginas e os assets referenciados por caminhos relativos.
+- Não foram identificados backend, dependências de build, variáveis de ambiente, chaves ou segredos.
+
+Melhoria opcional: o nome `estaciona-facil` precisa estar disponível no workspace Render. Limitação da revisão: o Blueprint não foi validado por uma conta autenticada nem em URL pública.
+
 ## Escopo examinado
 
 `public/index.html`, `public/style.css`, `public/app.js`, ativos da pasta `public/`, cópias da raiz, README e relatório de testes. A revisão comparou a implementação com RF-01 a RF-04 e RNF-01 a RNF-03 do briefing.

@@ -7,6 +7,7 @@ Aplicação estática preparada para publicação no Render. Não publicada no R
 ## Configuração de deploy
 
 - Tipo: Render Static Site
+- Blueprint: `render.yaml` na raiz do repositório
 - Publish Directory: `public`
 - Build Command: vazio
 - Variáveis de ambiente: nenhuma
@@ -47,5 +48,7 @@ Validação local final: as rotas e assets publicados responderam HTTP 200 em se
 3. Deixar Build Command vazio.
 4. Não configurar variáveis de ambiente: não há serviços externos.
 5. Publicar e validar o URL com check-in, edição, checkout, fechamento/novo dia, histórico, mobile e favicon.
+
+Também é possível usar o Blueprint: envie `render.yaml` junto ao repositório e, no Render, escolha **New > Blueprint** para esse repositório. O nome `estaciona-facil` deve estar disponível no workspace.
 
 Não são necessários Node, banco, backend ou dependências. A publicação ainda não foi realizada e a validação final do aluno/convidado continua necessária.

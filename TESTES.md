@@ -1,5 +1,19 @@
 # Relatório de testes
 
+## Rodada de configuração do Blueprint Render — 19/09/2026
+
+| ID | Ação | Resultado esperado | Resultado observado | Status |
+| --- | --- | --- | --- | --- |
+| T01 | Interpretar `render.yaml` com PyYAML | Blueprint estático válido | `type: web`, `runtime: static`, build vazio e `staticPublishPath: ./public` foram lidos | Passou |
+| T02 | Servir `public/` e solicitar as páginas e assets | Respostas HTTP 200 | `/`, `/index.html`, `/historico.html`, CSS, JS e favicon responderam 200 | Passou |
+| T03 | Executar `node --check` nos quatro scripts | Sintaxe JavaScript válida | Todos os scripts passaram | Passou |
+| T04 | Fazer check-in fictício na página inicial | Vaga C1 ocupada e contadores atualizados | Placa `ABC1D23` confirmada; 9 livres e 1 em uso | Passou |
+| T05 | Abrir `historico.html` | Página e assets carregam sem erros | Tela renderizou; console sem erros ou avisos | Passou |
+| T06 | Verificar histórico em 390×844 | Sem rolagem horizontal | `scrollWidth = clientWidth = 390` | Passou |
+| T07 | Executar `node testes/tarifas.test.js` | Regras de tarifa aprovadas | 15 cenários passaram | Passou |
+
+Os testes foram executados localmente, com `python -m http.server 8765 --directory public` e Playwright. O deploy remoto, domínio e headers do Render seguem pendentes porque nenhum serviço foi publicado nesta tarefa. Os dados permanecem no `localStorage` de cada navegador.
+
 ## Rodada de preparação para o Render — 19/09/2026
 
 - 9 cenários de deploy passaram no servidor estático local, incluindo fluxo principal, entradas inválidas, estado vazio, checkout, mobile, console, assets, rotas e cobrança.

@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: estaciona-facil
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./public

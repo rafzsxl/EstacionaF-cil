@@ -21,11 +21,13 @@ Acesse `http://localhost:8000/public/` ou `http://localhost:8000/public/historic
 
 ## Deploy no Render
 
-Para publicar manualmente, no Render escolha **New > Static Site** e conecte este repositório.
+O arquivo `render.yaml` já define este projeto como um **Static Site**, sem etapa de build, e publica a pasta `public`.
 
-1. Use `public` como Publish Directory.
-2. Deixe o Build Command vazio.
-3. Não configure variáveis de ambiente: o app não usa backend nem serviços externos.
+1. Envie este projeto para um repositório Git acessível ao Render.
+2. No painel do Render, escolha **New > Blueprint** e selecione o repositório.
+3. Revise o serviço detectado e confirme a criação. Não são necessárias variáveis de ambiente.
+
+Como alternativa, em **New > Static Site**, use `public` como Publish Directory e deixe o Build Command vazio.
 
 O arquivo `public/index.html` é a entrada do site publicado. O histórico fica em `/historico.html`.
 
